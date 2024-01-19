@@ -125,6 +125,7 @@ ro.vendor.audio.voice.change.youme.support=true
 ro.audio.monitorRotation=true
 persist.vendor.audio.misound.disable=true
 persist.vendor.audio.delta.refresh=true
+persist.sys.audio.para_version=M17-Audiopara-global-V20-20230609
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
@@ -270,6 +271,7 @@ debug.stagefright.omx_default_rank=0
 
 # NFC
 ro.vendor.se.type=HCE,UICC
+ro.vendor.nfc.repair=1
 
 # Radio
 keyguard.no_require_sim=true
