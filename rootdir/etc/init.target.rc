@@ -297,14 +297,6 @@ on property:persist.sys.sm6375.dt2w=0
 on property:persist.sys.sm6375.dt2w=1
     exec /system/bin/sendevent /dev/input/event4 0 1 5
 
-on property:graphics.display.kernel_idle_timer.enabled=true
-    # Switch display mode to 60hz when idle
-    write /sys/devices/platform/soc/soc:qcom,dsi-display-primary/idle_mode "@60"
-
-on property:graphics.display.kernel_idle_timer.enabled=false
-    # Disable aggressive idle mode switching
-    write /sys/devices/platform/soc/soc:qcom,dsi-display-primary/idle_mode "none"
-
     # Read only one page at a time
     write /proc/sys/vm/page-cluster 0
     # Swap more aggressively
