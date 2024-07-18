@@ -243,7 +243,7 @@ PRODUCT_PACKAGES += \
 
 # Fastcharge
 PRODUCT_PACKAGES += \
-    vendor.lineage.fastcharge@1.0-service.stone
+    vendor.statix.fastcharge@1.0-service.stone
 
 # Filesystem
 PRODUCT_PACKAGES += \
@@ -453,7 +453,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-statix
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
@@ -525,7 +525,7 @@ PRODUCT_COPY_FILES += \
 
 # Lineage Health
 PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
+    vendor.statix.health-service.default
 
 # Power
 PRODUCT_PACKAGES += \
@@ -635,7 +635,7 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/xiaomi
+    vendor/hardware/xiaomi
 
 # Telephony
 PRODUCT_PACKAGES += \
