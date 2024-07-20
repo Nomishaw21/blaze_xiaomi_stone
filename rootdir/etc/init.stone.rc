@@ -33,3 +33,16 @@ write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us 20000
 
 # CPUSets
 write /dev/cpuset/background/cpus 0-1
+
+# Spoof
+on init
+    setprop ro.build.id AP31.240517.022
+    setprop ro.build.brand google
+    setprop ro.product.device husky
+    setprop ro.build.fingerprint google/husky_beta/husky:15/AP31.240517.022/11948202:user/release-keys
+    setprop ro.product.manufacturer Google
+    setprop ro.product.model Pixel 8 Pro
+    setprop ro.build.product husky_beta
+    setprop ro.build.version.security_patch 2024-06-05
+    setprop ro.product.first_api_level 21
+    setprop ro.debuggable 0
