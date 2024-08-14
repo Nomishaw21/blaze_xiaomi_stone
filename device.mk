@@ -345,8 +345,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 PRODUCT_ENABLE_UFFD_GC := false
 
+# Kernel
+TARGET_KERNEL_VERSION ?= 5.4
+TARGET_KERNEL_DIR ?= device/xiaomi/stone-kernel
+
+PRODUCT_COPY_FILES += \
+    $(TARGET_KERNEL_DIR)/Image:kernel
+
 # Kernel Headers
-PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/stone-kernel/kernel-headers
+PRODUCT_VENDOR_KERNEL_HEADERS += device/xiaomi/stone-kernel/kernel-headers
 
 # Keylayout
 PRODUCT_COPY_FILES += \
