@@ -24,6 +24,10 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
 PRODUCT_SHIPPING_API_LEVEL := 30
 
+TARGET_BOARD_PLATFORM := holi
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_BOARD_PLATFORM := holi
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
