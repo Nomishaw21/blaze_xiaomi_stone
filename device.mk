@@ -655,7 +655,7 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/xiaomi \
+    vendor/hardware/xiaomi \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/statix/interfaces/power-libperfmgr \
