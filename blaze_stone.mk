@@ -8,8 +8,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common blaze stuff.
+$(call inherit-product, vendor/blaze/config/common_full_phone.mk)
 
 # Inherit from stone device
 $(call inherit-product, device/xiaomi/stone/device.mk)
@@ -23,13 +23,11 @@ TARGET_DEBLOAT := true
 # Charging Animation
 TARGET_USE_PIXEL_CHARGER := true
 
-# Rising stuff
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    RISING_CHIPSET="Snapdragon 695 5G" \
-    RISING_MAINTAINER="Nomi.."
-TARGET_ENABLE_BLUR := true
-WITH_GMS := true
-TARGET_CORE_GMS := true
+# Blaze stuff
+BLAZE_BUILD_TYPE := OFFICIAL
+BLAZE_MAINTAINER := Nomi...
+TARGET_SUPPORTS_BLUR := true
+TARGET_INCLUDE_PIXEL_LAUNCHER := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_stone

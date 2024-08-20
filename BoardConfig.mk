@@ -237,9 +237,10 @@ ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+BOARD_VENDOR := xiaomi
 
 # Sepolicy
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+include device/blaze/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
