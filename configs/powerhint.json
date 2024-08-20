@@ -6,8 +6,8 @@
       "Values": [
         "9999999",
         "1708800",
-        "576000",
-        "300000"
+        "1651200",
+        "1516800"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -17,31 +17,9 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
-        "1708800",
         "1324800",
         "1113600",
-        "691200",
-        "576000",
-        "300000"
-      ],
-      "DefaultIndex": 6,
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPULittleClusterUpRateLimit",
-      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us",
-      "Values": [
-        "500",
-        "2000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPULittleClusterDownRateLimit",
-      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us",
-      "Values": [
-        "20000",
-        "2000"
+        "691200"
       ],
       "ResetOnInit": true
     },
@@ -62,30 +40,9 @@
       "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
-        "2054400",
         "1651200",
-        "1228800",
         "691200",
         "0"
-      ],
-      "DefaultIndex": 5,
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUBigClusterUpRateLimit",
-      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/schedutil/up_rate_limit_us",
-      "Values": [
-        "500",
-        "2000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUBigClusterDownRateLimit",
-      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/schedutil/down_rate_limit_us",
-      "Values": [
-        "20000",
-        "2000"
       ],
       "ResetOnInit": true
     },
@@ -104,8 +61,8 @@
       "Name": "GPUMinFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
-        "840000000",
         "650000000",
+        "490000000",
         "266000000"
       ],
       "ResetOnInit": true
@@ -134,6 +91,15 @@
       "Values": [
         "10000",
         "80"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TASchedtuneBoost",
+      "Path": "/dev/stune/top-app/schedtune.boost",
+      "Values": [
+        "50",
+        "10"
       ],
       "ResetOnInit": true
     },
@@ -178,7 +144,8 @@
       "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/min_freq",
       "Values": [
         "7980",
-        "5161",
+        "5931",
+        "3879",
         "762"
       ],
       "ResetOnInit": true
@@ -188,7 +155,6 @@
       "Path": "/sys/class/devfreq/fd90100.qcom,cpu0-cpu-l3-lat/min_freq",
       "Values": [
         "1497600000",
-        "1171200000",
         "300000000"
       ],
       "ResetOnInit": true
@@ -198,48 +164,25 @@
       "Path": "/sys/class/devfreq/fd90100.qcom,cpu6-cpu-l3-lat/min_freq",
       "Values": [
         "1497600000",
-        "1171200000",
         "300000000"
       ],
       "ResetOnInit": true
     },
     {
-      "Name": "CPUDDRLatLittleMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/min_freq",
+      "Name": "PMQoSCpuDmaLatency",
+      "Path": "/dev/cpu_dma_latency",
       "Values": [
-        "7980",
-        "3879",
-        "762"
+        "44",
+        "100"
       ],
-      "ResetOnInit": true
+      "HoldFd": true
     },
     {
-      "Name": "CPUDDRLatBigMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-lat/min_freq",
+      "Name": "SchedBoost",
+      "Path": "/proc/sys/kernel/sched_boost",
       "Values": [
-        "7980",
-        "3879",
-        "762"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUDDRLatfloorLittleMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-latfloor/min_freq",
-      "Values": [
-        "7980",
-        "3879",
-        "762"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUDDRLatfloorBigMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-latfloor/min_freq",
-      "Values": [
-        "7980",
-        "3879",
-        "762"
+        "1",
+        "0"
       ],
       "ResetOnInit": true
     },
@@ -248,6 +191,15 @@
       "Path": "vendor.powerhal.state",
       "Values": [
         "SUSTAINED_PERFORMANCE",
+        ""
+      ],
+      "Type": "Property"
+    },
+    {
+      "Name": "PowerHALAudioState",
+      "Path": "vendor.powerhal.audio",
+      "Values": [
+        "AUDIO_STREAMING_LOW_LATENCY",
         ""
       ],
       "Type": "Property"
@@ -265,21 +217,21 @@
   "Actions": [
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
-      "Node": "PowerHALMainState",
-      "Duration": 0,
-      "Value": "SUSTAINED_PERFORMANCE"
-    },
-    {
-      "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
       "Value": "1516800"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "PowerHALMainState",
+      "Duration": 0,
+      "Value": "SUSTAINED_PERFORMANCE"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1708800"
+      "Value": "1651200"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -289,20 +241,21 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Type": "EndHint",
-      "Value": "DISABLE_TA_BOOST"
-    },
-    {
-      "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "2054400"
+      "Value": "1651200"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "1708800"
+      "Value": "1113600"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "TASchedtuneBoost",
+      "Duration": 0,
+      "Value": "50"
     },
     {
       "PowerHint": "INTERACTION",
@@ -326,72 +279,13 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 0,
-      "Value": "5161"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUDDRLatLittleMinFreq",
-      "Duration": 0,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUDDRLatBigMinFreq",
-      "Duration": 0,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUDDRLatfloorLittleMinFreq",
-      "Duration": 0,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUDDRLatfloorBigMinFreq",
-      "Duration": 0,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "L3LittleClusterMinFreq",
-      "Duration": 0,
-      "Value": "1171200000"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "L3BigClusterMinFreq",
-      "Duration": 0,
-      "Value": "1171200000"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPULittleClusterUpRateLimit",
-      "Duration": 0,
-      "Value": "500"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPULittleClusterDownRateLimit",
-      "Duration": 0,
-      "Value": "20000"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPUBigClusterUpRateLimit",
-      "Duration": 0,
-      "Value": "500"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPUBigClusterDownRateLimit",
-      "Duration": 0,
-      "Value": "20000"
+      "Value": "5931"
     },
     {
       "PowerHint": "LAUNCH",
-      "Type": "EndHint",
-      "Value": "DISABLE_TA_BOOST"
+      "Node": "SchedBoost",
+      "Duration": 5000,
+      "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
@@ -413,6 +307,12 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "PMQoSCpuDmaLatency",
+      "Duration": 5000,
+      "Value": "44"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "CPUBWHystTriggerCount",
       "Duration": 5000,
       "Value": "0"
@@ -432,30 +332,6 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWMinFreq",
-      "Duration": 5000,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUDDRLatLittleMinFreq",
-      "Duration": 5000,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUDDRLatBigMinFreq",
-      "Duration": 5000,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUDDRLatfloorLittleMinFreq",
-      "Duration": 5000,
-      "Value": "7980"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUDDRLatfloorBigMinFreq",
       "Duration": 5000,
       "Value": "7980"
     },
@@ -490,40 +366,28 @@
       "Value": "1497600000"
     },
     {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 0,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "FIXED_PERFORMANCE",
+      "PowerHint": "AUDIO_LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 0,
-      "Value": "9999999"
+      "Duration": 2000,
+      "Value": "1651200"
     },
     {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 0,
-      "Value": "9999999"
+      "PowerHint": "AUDIO_LAUNCH",
+      "Node": "PMQoSCpuDmaLatency",
+      "Duration": 2000,
+      "Value": "44"
     },
     {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "CPULittleClusterMinFreq",
+      "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
+      "Node": "PowerHALAudioState",
       "Duration": 0,
-      "Value": "9999999"
+      "Value": "AUDIO_STREAMING_LOW_LATENCY"
     },
     {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "GPUMaxFreq",
+      "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
+      "Node": "PMQoSCpuDmaLatency",
       "Duration": 0,
-      "Value": "840000000"
-    },
-    {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "GPUMinFreq",
-      "Duration": 0,
-      "Value": "840000000"
+      "Value": "44"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -542,34 +406,6 @@
       "Node": "GPUMaxFreq",
       "Duration": 0,
       "Value": "840000000"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 0,
-      "Value": "300000"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Type": "DoHint",
-      "Value": "DISABLE_TA_BOOST"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Type": "EndHint",
-      "Value": "INTERACTION"
-    },
-    {
-      "PowerHint": "DISPLAY_INACTIVE",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 0,
-      "Value": "300000"
     }
   ]
 }
