@@ -2,7 +2,6 @@ soong_namespace {
     imports: [
         "hardware/qcom-caf/bootctrl",
         "hardware/google/interfaces",
-        "hardware/blaze/interfaces/power-libperfmgr",
         "hardware/google/pixel",
         "hardware/xiaomi",
     ],
