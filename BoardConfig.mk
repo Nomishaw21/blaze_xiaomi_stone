@@ -57,8 +57,6 @@ BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
-BUILD_BROKEN_CLANG_PROPERTY := true
-RELAX_USES_LIBRARY_CHECK := true
 
 # Camera
 MALLOC_SVELTE_FOR_LIBC32 := true
@@ -286,5 +284,8 @@ BOARD_VNDK_VERSION := current
 # Inherit from the proprietary version
 include vendor/xiaomi/stone/BoardConfigVendor.mk
 
+<<<<<<< HEAD
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
+=======
+>>>>>>> cb3c007 (Stone: sepolicy: drop dome sepolicy)

@@ -1,1 +1,1 @@
-allow vendor_hal_gnss_qti system_prop:file { read };
+#allow vendor_hal_gnss_qti system_prop:file { read };
