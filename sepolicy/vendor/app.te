@@ -5,7 +5,4 @@ get_prop({ appdomain -isolated_app_all }, vendor_tee_listener_prop)
 
 # Allow appdomain to get vendor_persist_camera_prop
 get_prop(appdomain, vendor_camera_prop)
-<<<<<<< HEAD
-=======
 
->>>>>>> cb3c007 (Stone: sepolicy: drop dome sepolicy)
