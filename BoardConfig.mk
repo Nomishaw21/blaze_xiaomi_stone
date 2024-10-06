@@ -113,12 +113,24 @@ BOARD_KERNEL_CMDLINE += iptable_raw.raw_before_defrag=1
 BOARD_KERNEL_CMDLINE += ip6table_raw.raw_before_defrag=1
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
+# Prebuilt Kernel
+TARGET_NO_KERNEL_OVERRIDE := true
+TARGET_NO_KERNEL := false
+TARGET_KERNEL_SOURCE := $(DEVICE_PATH)-kernel/kernel-headers
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb.img
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)-kernel/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)-kernel/ramdisk-modules/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules) \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)-kernel/vendor-modules/,$(TARGET_COPY_OUT_VENDOR)/lib/modules)
+
+
 # Media
 TARGET_USES_ION := true
 TARGET_DISABLED_UBWC := true
 
 # OTA Assert
-TARGET_OTA_ASSERT_DEVICE := moonstone,sunstone,stone
+#TARGET_OTA_ASSERT_DEVICE := moonstone,sunstone,stone
 
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
